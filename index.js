@@ -40,10 +40,17 @@ Aşağıdakileri yapmak için aşağıdaki kopyalama işlevini kullanın:
 */
 
 
-function kopyala(/*kod buraya*/){
-  /*kod buraya*/
+function kopyala(dizi){
+  const kopyaDizi = [...dizi]; 
+  return kopyaDizi;
 }
 
+let yeniTatlar = kopyala(orijinalTatlar)
+/*
+console.log(kopyala(yeniTatlar))
+orijinalTatlar.push("Kakule");
+console.log(kopyala(orijinalTatlar));
+*/
 
 /* Görev 2:
 Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları kabul etmelidir:
@@ -56,10 +63,13 @@ Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları ka
 */
 
 
-function dizi25Cesitmi(/*kod buraya*/){
-  /*kod buraya*/
+function dizi25Cesitmi(dizi){
+  if (dizi.length == 25) {
+    return true;
+  } else {
+    return false;
+  }
 }
-
 
 /* Görev 3:
 Pastane sahibi size yeni bir lezzet fikriyle geldi: Kakule! Bunun da çok tutacağından çok emin. Bu lezzeti eklemek için diziyi değiştirmeniz gerekir.
@@ -73,11 +83,11 @@ Aşağıdakileri yapmak için cesitEkle işlevini kullanın:
   Örneğin: cesitEkle(orijinalTatlar, "Kakule") işlevi doğru çalıştığında ["Kakule", "Muz",..."Vanilya"] şeklinde dönmelidir
 */
 
-
-function cesitEkle(/*kod buraya*/){
-  /*kod buraya*/
+function cesitEkle(dizi, birTat) {
+  dizi.unshift(birTat);
+  return dizi;
 }
-
+console.log(cesitEkle(orijinalTatlar, "Kakule"));
 
 /* Cörev 4:
 
@@ -92,11 +102,12 @@ Aşağıdakileri yapmak için sonCesitiKaldir işlevini kullanın:
 */
 
 
-function sonCesitiKaldir(/*kod buraya*/){
-  /*kod buraya*/
+function sonCesitiKaldir(dizi){
+  dizi.pop();
+    return dizi;
 }
 
-
+console.log(sonCesitiKaldir(orijinalTatlar))
 /* Görev 5:
 Dizideki belirli bir indeksteki çeşniyi döndüren bir işlev yazın.
 
