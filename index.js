@@ -83,8 +83,8 @@ Aşağıdakileri yapmak için cesitEkle işlevini kullanın:
   Örneğin: cesitEkle(orijinalTatlar, "Kakule") işlevi doğru çalıştığında ["Kakule", "Muz",..."Vanilya"] şeklinde dönmelidir
 */
 
-function cesitEkle(dizi, birTat) {
-  dizi.unshift(birTat);
+function cesitEkle(dizi, tat) {
+  dizi.unshift(tat);
   return dizi;
 }
 console.log(cesitEkle(orijinalTatlar, "Kakule"));
@@ -101,13 +101,13 @@ Aşağıdakileri yapmak için sonCesitiKaldir işlevini kullanın:
    Örneğin: sonCesitiKaldir(orijinalTatlar) çalıştırıldığında ["Kakule", "Muz",..."Çilek"] döndürülür.
 */
 
-
 function sonCesitiKaldir(dizi){
   dizi.pop();
     return dizi;
 }
 
 console.log(sonCesitiKaldir(orijinalTatlar))
+
 /* Görev 5:
 Dizideki belirli bir indeksteki çeşniyi döndüren bir işlev yazın.
 
@@ -119,10 +119,10 @@ Aşağıdakileri yapmak için aşağıdaki indekstekiCesitiGetir işlevini kulla
    Örneğin: indekstekiCesitiGetir(orijinalTatlar, 2) çalıştırılmasıyla, Kakule'in başarıyla eklendiği varsayarsak sonuç "Ceviz" olucaktır.
 */
 
-function indekstekiCesitiGetir(/*kod buraya*/){
-  /*kod buraya*/
+function indekstekiCesitiGetir(dizi, index){
+  return dizi[index];
 }
-
+console.log(indekstekiCesitiGetir(orijinalTatlar, 7));
 
 /* Görev 6:
 
@@ -139,10 +139,17 @@ Aşağıdakileri yapmak için ismeGoreCesitCikar işlevini kullanın:
   İPUCU: Bunun için .splice() kullanabilirsiniz.
 */
 
-function ismeGoreCesitCikar(/*kod buraya*/){
-  /*kod buraya*/
+
+function ismeGoreCesitCikar(dizi, isim) {
+  for (let i = 0; i < dizi.length; i++) {
+    if (dizi[i] === isim) {
+      dizi.splice(i, 1);
+    }
+  }
+  return dizi;
 }
 
+console.log("G6", ismeGoreCesitCikar(orijinalTatlar, "Ananas"));
 
 /* Görev 7:
 
@@ -165,9 +172,18 @@ Aşağıdakileri yapmak için ismeGoreFiltrele işlevini kullanın:
 */
 
 
-function ismeGoreFiltrele(/*kod buraya*/){
-  /*kod buraya*/
+function ismeGoreFiltrele(dizi, tat) {
+  const nDizi = [];
+  for (let i = 0; i < dizi.length; i++) {
+    if (dizi[i].includes(tat)) {
+      nDizi.push(dizi[i]);
+    }
+  }
+
+  return nDizi;
 }
+
+console.log(ismeGoreFiltrele(orijinalTatlar, "Ahududu"));
 
 
 
